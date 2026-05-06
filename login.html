@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEO3D Admin Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body {
+      /* Banner background for whole page */
+      background: linear-gradient(120deg, #0284c7cc 15%, #0369a1cc 60%, #0e1627cc 100%), url('banner.jpeg') center center / cover no-repeat;
+      min-height: 100vh;
+      min-height: 100dvh;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      background-attachment: fixed;
+    }
+    .login-card-bg {
+      /* Logo as background in the white card area, softly, with white background */
+      background:
+        linear-gradient(0deg, #fff 80%, #fff 80%),
+        url('logo.jpeg') center 35% / 60% no-repeat;
+      background-blend-mode: normal;
+    }
+  </style>
+</head>
+<body data-page="login" class="flex min-h-screen min-h-[100dvh] items-center justify-center p-4 sm:p-5">
+  <div class="neo-card login-card-bg w-full max-w-md p-6 text-slate-800 shadow-xl sm:p-8" style="backdrop-filter: blur(2px); border-radius: 1.1rem;">
+    <div class="text-center mb-6">
+      <h1 class="text-3xl font-extrabold text-sky-700">NEO3D</h1>
+      <p class="text-sm text-slate-500">Admin Login Portal</p>
+    </div>
+
+    <form id="loginForm" action="php/login_process.php" method="POST" class="space-y-4">
+      <div>
+        <label class="block text-sm font-semibold mb-1">Username</label>
+        <input type="text" name="username" class="w-full border rounded-lg p-2.5" required>
+      </div>
+      <div>
+        <label class="block text-sm font-semibold mb-1">Password</label>
+        <input type="password" name="password" class="w-full border rounded-lg p-2.5" required>
+      </div>
+      <button type="submit" class="w-full bg-sky-600 text-white py-2.5 rounded-lg font-semibold hover:bg-sky-700">Login</button>
+      <p id="loginClientMsg" class="text-red-600 text-sm"></p>
+    </form>
+
+    <p id="serverError" class="text-red-600 text-sm mt-4"></p>
+    <a href="index.html" class="block mt-4 text-center text-sm text-sky-700 hover:underline">Back to Landing Page</a>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const err = params.get("error");
+    if (err) document.getElementById("serverError").textContent = err;
+  </script>
+</body>
+</html>

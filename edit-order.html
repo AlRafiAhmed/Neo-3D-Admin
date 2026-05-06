@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Order - NEO3D</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="edit-order" class="min-h-screen bg-slate-100">
+  <div class="flex min-h-screen flex-col md:flex-row">
+    <div id="neoNavBackdrop" class="neo-nav-backdrop fixed inset-0 z-40 bg-slate-900/50 md:hidden" aria-hidden="true"></div>
+
+    <header class="sticky top-0 z-30 flex shrink-0 items-center justify-between gap-2 bg-slate-900 px-4 py-3 text-white shadow-md md:hidden">
+      <a href="dashboard.html" class="text-lg font-extrabold tracking-tight">NEO3D</a>
+      <button type="button" id="neoNavToggle" class="rounded-lg bg-slate-800 p-2 text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-sky-400" aria-label="Open menu" aria-expanded="false" aria-controls="neoSidebar">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </header>
+
+    <aside id="neoSidebar" class="neo-app-sidebar fixed left-0 top-0 z-50 flex min-h-[100dvh] w-64 max-w-[min(18rem,calc(100vw-1rem))] flex-col overflow-y-auto bg-slate-900 p-5 text-white shadow-2xl md:static md:z-auto md:min-h-screen md:w-64 md:max-w-none md:shrink-0 md:shadow-none" aria-label="Main navigation">
+      <div class="mb-6 flex items-center justify-between gap-2">
+        <h2 class="text-xl font-extrabold sm:text-2xl">NEO3D</h2>
+        <button type="button" id="neoNavClose" class="rounded-lg bg-slate-800 p-2 text-white hover:bg-slate-700 md:hidden focus:outline-none focus:ring-2 focus:ring-sky-400" aria-label="Close menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <nav class="flex flex-1 flex-col gap-0.5">
+        <a class="sidebar-link" href="admin-profile.html">Admin Profile</a>
+        <a class="sidebar-link" href="dashboard.html">Dashboard</a>
+        <a class="sidebar-link" href="create-order.html">Create Order</a>
+        <a class="sidebar-link active" href="orders.html">View Orders</a>
+        <a class="sidebar-link" href="profit.html">Profit</a>
+        <a class="sidebar-link" href="login.html">Logout</a>
+      </nav>
+    </aside>
+
+    <main class="min-w-0 flex-1 p-4 sm:p-5 md:p-8">
+      <h1 class="mb-6 text-2xl font-bold sm:text-3xl">Edit Order</h1>
+      <form id="editOrderForm" class="neo-card grid min-w-0 gap-4 bg-white p-4 sm:p-6 md:grid-cols-2">
+        <div>
+          <label class="block text-sm font-semibold mb-1">Customer Name</label>
+          <input name="customer_name" required class="w-full border rounded-lg p-2.5">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1">Product</label>
+          <input name="product" required class="w-full border rounded-lg p-2.5">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1">Quantity</label>
+          <input type="number" min="1" name="quantity" required class="w-full border rounded-lg p-2.5">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1">Price (Tk)</label>
+          <input type="number" step="0.01" min="0" name="price" required class="w-full border rounded-lg p-2.5">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1">Profit Amount (Tk)</label>
+          <input type="number" step="0.01" min="0" name="profit_amount" required class="w-full border rounded-lg p-2.5">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1">Order Date</label>
+          <input type="date" name="order_date" class="w-full border rounded-lg p-2.5">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1">Delivery Date</label>
+          <input type="date" name="delivery_date" required class="w-full border rounded-lg p-2.5">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1">Status</label>
+          <select name="status" class="w-full border rounded-lg p-2.5">
+            <option>Pending</option>
+            <option>Delivered</option>
+            <option>Cancelled</option>
+          </select>
+        </div>
+        <div class="md:col-span-2">
+          <button type="submit" class="w-full rounded-lg bg-emerald-600 px-6 py-2.5 font-semibold text-white hover:bg-emerald-700 sm:w-auto">Update Order</button>
+          <p id="editOrderMsg" class="mt-3 text-sm"></p>
+        </div>
+      </form>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

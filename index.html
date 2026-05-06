@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEO3D Admin Panel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .backdrop-bg {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      background: linear-gradient(120deg, #0284c7cc 15%, #0369a1cc 60%, #0e1627cc 100%), url('banner.jpeg') center center / cover no-repeat;
+      animation: backdropMove 16s ease-in-out infinite alternate;
+    }
+    @keyframes backdropMove {
+      0%   { background-position: 60% 60%, center;}
+      100% { background-position: 40% 40%, center;}
+    }
+    .neon {
+      /* White, no shadow, no animation */
+      color: #fff !important;
+      text-shadow: none !important;
+    }
+    @keyframes neonPulse {
+      from { filter: brightness(1.1); }
+      to   { filter: brightness(1.5); }
+    }
+    .hero-shape {
+      position: absolute;
+      left: 8vw;
+      top: 75%;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #22d3eeaa 40%, #818cf899 100%);
+      z-index: 0;
+      filter: blur(16px);
+      animation: floatB 6s ease-in-out infinite alternate;
+    }
+    @keyframes floatB {
+      0%   { transform: translateY(0) scale(1);}
+      100% { transform: translateY(-30px) scale(1.15);}
+    }
+    .hero-shape2 {
+      position: absolute;
+      right: 10vw;
+      bottom: 18%;
+      width: 72px;
+      height: 72px;
+      border-radius: 40% 60% 57% 43%/45% 50% 50% 55%;
+      background: linear-gradient(135deg, #fbbf24cc 45%, #ccfbf1cc 100%);
+      z-index: 0;
+      filter: blur(10px);
+      animation: floatR 8s ease-in-out infinite alternate;
+    }
+    @keyframes floatR {
+      0%   { transform: scale(1);}
+      100% { transform: scale(1.18) rotate(16deg);}
+    }
+    /* Fast Turnaround stability (remove bounce animation, make stable) */
+    .feature-stable {
+      /* Remove animation for stability */
+      animation: none !important;
+    }
+  </style>
+</head>
+<body class="min-h-screen neo-brand-gradient text-white flex items-center justify-center p-6 relative overflow-hidden">
+
+  <div class="backdrop-bg"></div>
+  <div class="hero-shape"></div>
+  <div class="hero-shape2"></div>
+
+  <!-- Top Bar -->
+  <nav class="fixed top-0 left-0 z-30 flex w-full flex-wrap items-center justify-between gap-2 px-3 py-3 sm:gap-3 md:px-8 md:py-4 bg-gradient-to-b from-slate-950/75 to-transparent">
+    <!-- Logo & text -->
+    <div class="flex items-center gap-2">
+      <img src="logo.jpeg" alt="NEO3D Logo" class="w-12 h-12 md:w-16 md:h-16 rounded shadow-lg border-2 border-cyan-300 animate-spin-slow bg-white/50 object-contain" style="animation-duration:6s">
+      <div class="flex flex-col">
+        <span class="text-lg md:text-2xl font-bold neon tracking-wider">NEO3D</span>
+        <span class="text-xs md:text-sm text-cyan-200 font-medium">We convert your thoughts into models,<br class="hidden md:inline"> then print your thought!</span>
+      </div>
+    </div>
+    <!-- Admin login button -->
+    <div>
+      <a href="login.html" class="shrink-0 rounded-xl bg-gradient-to-tr from-cyan-400 to-emerald-400 px-4 py-2 text-sm font-bold text-slate-900 shadow-lg ring-2 ring-cyan-200/75 transition-all duration-200 hover:scale-105 hover:from-cyan-300 hover:to-emerald-200 active:scale-95 sm:px-6 sm:text-base md:px-8 md:py-3">
+        Admin Login
+      </a>
+    </div>
+  </nav>
+
+  <main class="z-10 w-full max-w-3xl px-3 pt-28 text-center sm:pt-32 md:pt-36">
+    <!-- Remove animate-fade-in-up class from h1 to remove animation from NEO3D -->
+    <h1 class="text-4xl md:text-5xl font-extrabold neon mb-4">
+      NEO3D
+    </h1>
+    <p class="text-2xl md:text-3xl font-semibold tracking-tight bg-gradient-to-r from-cyan-200 via-emerald-200 to-yellow-200 bg-clip-text text-transparent mb-2 animate-fade-in-up" style="animation-delay:0.25s;">
+      Imagine. Model. Print.
+    </p>
+    <p class="text-cyan-100 text-lg mb-2 animate-fade-in-up" style="animation-delay:0.3s;">
+      Unleash your creativity with rapid, high-precision 3D printing.
+    </p>
+    <p class="mb-8 text-base md:text-lg text-cyan-200 animate-fade-in-up" style="animation-delay:0.35s;">
+      We turn your boldest ideas and thoughts into tangible models, then print them with care! From prototype to product — unlock a world of possibilities.
+    </p>
+    <div class="flex flex-wrap gap-5 items-center justify-center mb-4">
+      <span class="px-4 py-2 rounded-full bg-white/10 border border-cyan-200 text-cyan-100 text-sm shadow feature-stable">Fast Turnaround</span>
+      <span class="px-4 py-2 rounded-full bg-white/10 border border-emerald-200 text-emerald-100 text-sm shadow animate-pulse">Limitless Design</span>
+      <span class="px-4 py-2 rounded-full bg-white/10 border border-yellow-200 text-yellow-100 text-sm shadow">Affordable Prices</span>
+    </div>
+    <div class="mt-6 flex flex-col items-center animate-fade-in-up" style="animation-delay:0.45s;">
+      <svg class="w-12 h-12 mx-auto text-cyan-300 animate-pulse mb-2" fill="none" viewBox="0 0 48 48">
+        <path d="M8 38v-6h32v6a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+        <rect x="20" y="10" width="8" height="16" rx="2" fill="#38bdf8" class="animate-spin-slow" stroke="currentColor" stroke-width="2"/>
+        <rect x="27" y="24" width="7" height="7" rx="1.5" fill="#22d3ee"/>
+        <rect x="14" y="24" width="7" height="7" rx="1.5" fill="#fbbf24"/>
+      </svg>
+      <span class="text-cyan-100 text-xs">Your creation starts here</span>
+    </div>
+  </main>
+  <script>
+    // Animate fade-in-up for staggered elements
+    document.querySelectorAll('.animate-fade-in-up').forEach((el, i) => {
+      const delay = el.style.animationDelay || (i * 0.08) + "s";
+      el.style.opacity = 0;
+      el.style.transform = "translateY(24px)";
+      setTimeout(() => {
+        el.style.transition = "opacity 0.7s cubic-bezier(.22,1.02,.16,1), transform 0.7s cubic-bezier(.22,1.02,.16,1)";
+        el.style.opacity = 1;
+        el.style.transform = "translateY(0)";
+      }, parseFloat(delay) * 1000);
+    });
+  </script>
+</body>
+</html>
