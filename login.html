@@ -33,16 +33,16 @@
       <p class="text-sm text-slate-500">Admin Login Portal</p>
     </div>
 
-    <form id="loginForm" action="php/login_process.php" method="POST" class="space-y-4">
+    <form id="loginForm" action="dashboard.html" method="GET" class="space-y-4">
       <div>
         <label class="block text-sm font-semibold mb-1">Username</label>
-        <input type="text" name="username" class="w-full border rounded-lg p-2.5" required>
+        <input type="text" name="username" class="w-full border rounded-lg p-2.5">
       </div>
       <div>
         <label class="block text-sm font-semibold mb-1">Password</label>
-        <input type="password" name="password" class="w-full border rounded-lg p-2.5" required>
+        <input type="password" name="password" class="w-full border rounded-lg p-2.5">
       </div>
-      <button type="submit" class="w-full bg-sky-600 text-white py-2.5 rounded-lg font-semibold hover:bg-sky-700">Login</button>
+      <button type="submit" class="w-full bg-sky-600 text-white py-2.5 rounded-lg font-semibold hover:bg-sky-700">Enter Dashboard</button>
       <p id="loginClientMsg" class="text-red-600 text-sm"></p>
     </form>
 
